@@ -25,7 +25,7 @@ class Leave extends React.Component {
   };
   reason = reason => {
     this.setState({
-      reason:reason
+      reason:document.getElementById("givereason").value
     });
   };
   
@@ -49,7 +49,7 @@ class Leave extends React.Component {
         />
         <br></br>
         <textarea 
-        selected={this.state.reason}
+        id="givereason"
         onChange={this.reason} >
             enter reason
         </textarea>
