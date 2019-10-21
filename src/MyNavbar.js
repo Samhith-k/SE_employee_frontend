@@ -15,10 +15,11 @@ const MyNavbar = () => {
                 </div>
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul className="nav navbar-nav navbar-right">
-                        <li><Link to="/search">Salary</Link></li>
-                        <li><Link to="/search">Leave</Link></li>
+                        <li><Link to="/Salary">Salary</Link></li>
+                        <li><Link to="/Leave">Leave</Link></li>
                         <li><Link to="/search">referral</Link></li>
                         <li><Link to="/search">reimbursement</Link></li>
+                        <li><Link to="/ApproveLeave">Approve Leave</Link></li>
                     </ul>
                 </div>
             </div>

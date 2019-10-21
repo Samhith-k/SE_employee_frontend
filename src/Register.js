@@ -8,8 +8,9 @@ class Register extends React.Component{
     }
     handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://13.234.55.47:5000/register',{user_name:"a",password:"a"})
-        .then(console.log("registered"))                             
+        console.log(this.state.email,this.state.password)
+        /*axios.post('http://13.234.55.47:5000/register',{user_name:"a",password:"a"})
+        .then(console.log("registered")) */                            
       } 
     render(){
         return(
@@ -25,7 +26,7 @@ class Register extends React.Component{
                             <input type="password" onChange={(e) => this.setState({password: e.target.value})}/>
                         </div>
                         <input type="submit" value="Login" />
-                    </form>
+                </form>
             </div>
         )
         }

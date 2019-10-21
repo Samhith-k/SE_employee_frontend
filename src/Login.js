@@ -13,7 +13,7 @@ class Login extends React.Component{
     handleSubmit = (e) => {
       e.preventDefault()
       console.log(this.props)
-      axios.post('http://13.234.55.47:5000/login',{user_name:this.state.email,password:this.state.password})
+      axios.post('http://13.234.55.47:5000/login',{user_name:"Rahul",password:"E5857B335AFDF35CA81A110BC81F38682F8A89892CC597F5398DFEF82D42B513"})
       .then(res=>{if(res.status){this.props.isAuthenticated()
                                     
                                     this.props.seteid(res.data.e_id)
@@ -28,7 +28,6 @@ class Login extends React.Component{
             return <Redirect to="/" />
         return(
             <div>
-                <MyNavbar/>
                 <form onSubmit={this.handleSubmit}>
                     <div>                        
                         <label htmlFor="Username">Username</label>
