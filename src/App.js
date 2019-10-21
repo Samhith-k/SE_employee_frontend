@@ -1,11 +1,12 @@
 import React from 'react';
 import MyNavbar from "./MyNavbar"
 
-function App() {
+function App(props) {
   return (
   <div>
     <MyNavbar/>
-    <h1>gg</h1>  
+    <h1>gg</h1>
+    {console.log("inside the app",props.eid)  }
   </div>
   );
 }

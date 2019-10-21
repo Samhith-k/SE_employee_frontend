@@ -7,19 +7,20 @@ import MyNavbar from "./MyNavbar"
 class Login extends React.Component{
     constructor(props){
         super(props)
-        this.state={email:"",password:""}
+        this.state={email:"",password:"",stat:0}
     }
 
     handleSubmit = (e) => {
       e.preventDefault()
-      fetch('13.234.55.47:5000/login', {
-          method: 'POST',
-          body:{"user_name":this.state.email,"password":this.state.password}
-
-      })
-      .then(response => response.json())
-      .then(data => {console.log(data)} )
-      this.props.isAuthenticated()
+      console.log(this.props)
+      axios.post('http://13.234.55.47:5000/login',{user_name:this.state.email,password:this.state.password})
+      .then(res=>{if(res.status){this.props.isAuthenticated()
+                                    
+                                    this.props.seteid(res.data.e_id)
+                                    console.log(this.props.eid)
+                                } 
+                    
+                })
     } 
 
     render(){
@@ -30,8 +31,8 @@ class Login extends React.Component{
                 <MyNavbar/>
                 <form onSubmit={this.handleSubmit}>
                     <div>                        
-                        <label htmlFor="email">Email</label>
-                        <input type="email" placeholder="email enter that one" onChange={(e) => this.setState({email: e.target.value})}/>
+                        <label htmlFor="Username">Username</label>
+                        <input type="text" placeholder="username enter that one" onChange={(e) => this.setState({email: e.target.value})}/>
                     </div>
                     <div>                        
                         <label htmlFor="password">Password</label>
@@ -39,6 +40,7 @@ class Login extends React.Component{
                     </div>
                     <input type="submit" value="Login" />
                 </form>
+                <a href="/Register"> Click here to register </a>
             </div>
 
         )
