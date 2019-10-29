@@ -14,14 +14,17 @@ class Login extends React.Component{
       e.preventDefault()
       console.log(this.props)
       axios.post('http://13.234.55.47:5000/login',{user_name:this.state.email,password:this.state.password})
-      .then(res=>{if(res.status){this.props.isAuthenticated()
+      //axios.post('http://13.234.55.47:5000/login',{user_name:"Rahul",password:"E5857B335AFDF35CA81A110BC81F38682F8A89892CC597F5398DFEF82D42B513"})
+      .then(res=>{if(res.status==200){this.props.isAuthenticated()
                                     
                                     this.props.seteid(res.data.e_id)
                                     console.log(this.props.eid)
                                 } 
+                    else{console.log("enter valid credentials")
+                        alert("enter valid credentials")}
                     
                 })
-        .catch(alert("incorrect password or username"))
+        
     } 
 
     render(){

@@ -10,8 +10,11 @@ class Register extends React.Component{
         e.preventDefault()
         console.log(this.state.email,this.state.password)
         axios.post("http://13.234.55.47:5000/register",{user_name:this.state.email,password:this.state.password,dept_id:this.state.dept_id})
-        .then(console.log("registered"))
-        .catch(alert("username is already taken"))  
+        .then(res=>{
+            if(res.status==200)
+            console.log("registered")
+        }
+            )
         this.props.history.push("/l")                           
       } 
     render(){
@@ -24,7 +27,7 @@ class Register extends React.Component{
                             <input type="text" placeholder="username enter that one" onChange={(e) => this.setState({email: e.target.value})}/>
                         </div>
                         <div>                        
-                            <label htmlFor="Department">Username</label>
+                            <label htmlFor="Department">Department</label>
                             <input type="text" placeholder="department enter that one" onChange={(e) => this.setState({dept_id: e.target.value})}/>
                         </div>
                         <div>                        
