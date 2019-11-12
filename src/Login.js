@@ -1,8 +1,8 @@
 import React from "react"
-import {Button} from "react-bootstrap"  
+
 import axios from "axios"
 import { Redirect } from 'react-router-dom'
-import MyNavbar from "./MyNavbar"
+
 
 class Login extends React.Component{
     constructor(props){
@@ -13,9 +13,9 @@ class Login extends React.Component{
     handleSubmit = (e) => {
       e.preventDefault()
       console.log(this.props)
-      axios.post('http://13.234.55.47:5000/login',{user_name:this.state.email,password:this.state.password})
-      //axios.post('http://13.234.55.47:5000/login',{user_name:"Rahul",password:"E5857B335AFDF35CA81A110BC81F38682F8A89892CC597F5398DFEF82D42B513"})
-      .then(res=>{if(res.status==200){this.props.isAuthenticated()
+      //axios.post('http://13.234.55.47:5000/login',{user_name:this.state.email,password:this.state.password})
+      axios.post('http://13.234.55.47:5000/login',{user_name:"Rahul",password:"E5857B335AFDF35CA81A110BC81F38682F8A89892CC597F5398DFEF82D42B513"})
+      .then(res=>{if(res.status===200){this.props.isAuthenticated()
                                     
                                     this.props.seteid(res.data.e_id)
                                     console.log(this.props.eid)

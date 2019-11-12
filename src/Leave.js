@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
  
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
-import { array } from "prop-types";
+
  
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
@@ -21,7 +21,7 @@ class Leave extends React.Component {
     console.log(this.state.reason_category)
     console.log(this.props.eid)
     axios.post('http://13.234.55.47:5000/apply_leave',{"e_id":this.props.eid,"type":"medical","list_of_dates":datearray,"reason":this.state.reason,"status":"pending"})
-    .then(res=>{if(res.status==200)
+    .then(res=>{if(res.status===200)
                 {alert("Leave application submitted")}
                 else{
                   alert("Enter valid details")
