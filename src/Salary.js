@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import MyNavbar from "./MyNavbar"
 
 class Salary extends React.Component{
     constructor(props){
@@ -20,6 +21,7 @@ class Salary extends React.Component{
     render(){
         return(
             <div>
+            <MyNavbar> </MyNavbar>
             <p>salary</p>
             <p> salary :{this.state.salary}</p>
             <p> bonus :{this.state.bonus}</p>

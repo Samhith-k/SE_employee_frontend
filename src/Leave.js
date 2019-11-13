@@ -4,14 +4,20 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 
- 
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+ // put drop down for method and change request
 
 class Leave extends React.Component {
-  constructor(){
-    super()
-    this.state = {startDate: new Date(),reason:"",reason_category:"",resp:""}
+  constructor(props){
+    super(props)
+    this.state = {startDate: new Date(),reason:"",reason_category:"",resp:"",casual:"",earned:"",medical:""}
+    axios.get('http://13.234.55.47:5000/get_leave_data/'+props.eid)
+    .then(res=>{
+                console.log(res.data)
+                this.setState({casual:res.data.casual})
+                this.setState({earned:res.data.earned})
+                this.setState({medical:res.data.medical})
+                console.log(this.state)
+              })
 }
   handleSubmit = () => {
     console.log(this.state.reason)
@@ -36,6 +42,13 @@ class Leave extends React.Component {
   render(){
     return (
         <div>
+            <h1>Leaves Left</h1>
+            <p>
+              casual:{this.state.casual}
+              medical:{this.state.medical}
+              earned:{this.state.earned}
+            </p>
+
             <h1>leave apllication</h1>
         <DatePicker   
         selected={this.state.startDate}
