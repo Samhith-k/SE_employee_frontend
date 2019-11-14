@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
  
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import myNavbar from "./MyNavbar"
 
  // put drop down for method and change request
 
@@ -42,6 +43,7 @@ class Leave extends React.Component {
   render(){
     return (
         <div>
+          <myNavbar></myNavbar>
             <h1>Leaves Left</h1>
             <p>
               casual:{this.state.casual}

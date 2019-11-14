@@ -1,6 +1,7 @@
 import React from "react"
 import Axios from "axios"
 import { Redirect } from 'react-router-dom'
+import MyNavbar from "./MyNavbar"
 //reload the variable status to new one
 /*
 function Leaveitem(props){
