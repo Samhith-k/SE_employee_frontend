@@ -29,13 +29,13 @@ class Leaveitem extends React.Component{
         super(props)
         var s=props.item.status
         console.log(s)
-        this.state={count:1,status:s}
+        this.state={status:s}
         this.handleClick=this.handleClick.bind(this)
     }
     handleClick(newStatus){
         console.log("clicked")
         //Axios.post('http://13.234.55.47:5000/approve_leave',{e_id:this.props.item.e_id,type:this.props.item.type,list_of_dates:this.props.item.list_of_dates,status:newStatus})
-        this.setState({status:"ACCEPTED"})
+        //this.setState({status:"ACCEPTED"})
     }
     render(){
         return(
@@ -47,8 +47,18 @@ class Leaveitem extends React.Component{
                     {this.state.status+"  "}
                     {this.props.item.list_of_dates}
                     <p></p>
-                    <button onClick={this.handleClick("APPROVE")}>accept</button>
-                    <button  onClick={this.handleClick("REJECT")}>reject</button>
+                    <button onClick={()=>{
+                                console.log("clicked")
+                                this.setState({status:"approved"})
+                                Axios.post('http://13.234.55.47:5000/approve_leave',{e_id:this.props.item.e_id,type:this.props.item.type,list_of_dates:this.props.item.list_of_dates,status:"APPROVE"})
+                                }
+                    }>accept</button>
+                    <button  onClick={()=>{
+                                console.log("clicked")
+                                this.setState({status:"rejected"})
+                                Axios.post('http://13.234.55.47:5000/approve_leave',{e_id:this.props.item.e_id,type:this.props.item.type,list_of_dates:this.props.item.list_of_dates,status:"REJECT"})
+                                }
+                    }>reject</button>
                 </div>
             </div>
         )

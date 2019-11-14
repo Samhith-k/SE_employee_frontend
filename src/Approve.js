@@ -3,6 +3,7 @@ import MyNavbar from "./MyNavbar"
 import axios from "axios"
 import Leaveitem from "./Leaveitem"
 
+
 class Approve extends React.Component {
     constructor(props){
         super(props)
@@ -21,7 +22,7 @@ class Approve extends React.Component {
 
     }
     render(){
-        <MyNavbar></MyNavbar>
+        
         console.log("items are",this.state.items)
         const approveitems=this.state.items.map(item=><Leaveitem key={item.eid} item={item} handleChange={this.handleChange} />)
         return (
