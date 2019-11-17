@@ -18,6 +18,7 @@ const MyNavbar = () => {
           <Nav.Link><Link to="/Refer" style={{color:'white'}}>Referral</Link></Nav.Link>
           <Nav.Link><Link to="/Register" style={{color:'white'}}>Register</Link></Nav.Link>
           <Nav.Link><Link to="/approve_bill" style={{color:'white'}}>Approval-Bills</Link></Nav.Link>
+          <Nav.Link><Link to="/l" style={{color:'white'}} onClick={localStorage.clear()}>Logout</Link></Nav.Link>
         </Nav>
       </Navbar>
     );
