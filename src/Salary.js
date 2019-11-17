@@ -10,8 +10,8 @@ class Salary extends React.Component{
         this.state={salary:0,bonus:0,bonus_status:false,salary_status:false}
         //event.preventDefault
         console.log("inside the salary page",props.eid)
-        axios.get('http://13.234.55.47:5000/display_salary/'+props.eid)
-        //axios.get('http://localhost:5000/display_salary/'+props.eid)
+        //axios.get('http://13.234.55.47:5000/display_salary/'+props.eid)
+        axios.get('http://localhost:5000/display_salary/'+props.eid)
         .then(
            response=> {console.log(response.data)
            this.setState({salary:response.data.Salary})

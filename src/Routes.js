@@ -7,6 +7,11 @@ import Register from "./Register"
 import Approve from "./Approve"
 import Salary from "./Salary"
 import Leave from "./Leave"
+import Cab from "./Cab"
+import Bill from "./Bill"
+import view_bills from "./view_bills"
+import approve_bill from "./approve_bill"
+import Refer from "./Refer"
 class Routes extends React.Component{
 
     constructor(props){
@@ -35,8 +40,13 @@ class Routes extends React.Component{
 
               <PrivateRoute exact path="/Salary" authenticated={this.state.loggedin} component={Salary} eid={this.state.eid} />
               <PrivateRoute exact path="/Approve" authenticated={this.state.loggedin} component={Approve} eid={this.state.eid} />
+              <PrivateRoute exact path="/Cab" authenticated={this.state.loggedin} component={Cab} eid={this.state.eid} />
+              <PrivateRoute exact path="/Bill" authenticated={this.state.loggedin} component={Bill} eid={this.state.eid} />
+              <PrivateRoute exact path="/Register" authenticated={this.state.loggedin} component={Register} eid={this.state.eid} />
+              <PrivateRoute exact path="/approve_bill" authenticated={this.state.loggedin} component={approve_bill} eid={this.state.eid} />
+              <PrivateRoute exact path="/Refer" authenticated={this.state.loggedin} component={Refer} eid={this.state.eid} />
               <Route exact path="/l" render={() => <Login loggedin={this.state.loggedin} isAuthenticated={this.isAuthenticated} seteid={this.seteid} eid={this.state.eid} />} /> 
-              <Route exact path="/register" component={Register} />
+              
           </Switch>
         </Router>
       )  

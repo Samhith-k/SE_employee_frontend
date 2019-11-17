@@ -40,9 +40,6 @@ class Leaveitem extends React.Component{
         //this.setState({status:"ACCEPTED"})
     }
     render(){
-        if(this.state.status=="approved" ||this.state.status=="rejected"  )
-        return(<div></div>)
-        else
         return(
             <div>
                 <div style={{marginBottom:'1%'}}>
@@ -52,14 +49,13 @@ class Leaveitem extends React.Component{
                 <Card.Subtitle className="mb-2 text-muted">Leave Type: {this.props.item.type}</Card.Subtitle>
                     <Card.Text>
                     Reason for Leave: {this.props.item.reason}<br/>
-                    Dates: {this.props.item.list_of_dates}<br/>
-                    Status:{this.state.status}
+                    Dates: {this.props.item.list_of_dates}
+                    Status: {this.state.status}
                     </Card.Text>
                     <Button variant="success" onClick={()=>{
                                 console.log("clicked")
                                 this.setState({status:"approved"})
-                                Axios.post('http://13.234.55.47:5000/approve_leave',{e_id:this.props.item.e_id,type:this.props.item.type,list_of_dates:this.props.item.list_of_dates,status:"approved"})
-                                .then(res=>console.log("after request reposne:",res))
+                                Axios.post('http://localhost:5000/approve_leave',{e_id:this.props.item.e_id,type:this.props.item.type,list_of_dates:this.props.item.list_of_dates,status:"APPROVE"})
                                 //this.state.render = false;    
                             }
                                 
@@ -67,8 +63,7 @@ class Leaveitem extends React.Component{
                     <Button variant="danger" onClick={()=>{
                                 console.log("clicked")
                                 this.setState({status:"rejected"})
-                                Axios.post('http://13.234.55.47:5000/approve_leave',{e_id:this.props.item.e_id,type:this.props.item.type,list_of_dates:this.props.item.list_of_dates,status:"rejected"})
-                                .then(res=>console.log("after request reposne:",res))
+                                Axios.post('http://localhost:5000/approve_leave',{e_id:this.props.item.e_id,type:this.props.item.type,list_of_dates:this.props.item.list_of_dates,status:"REJECT"})
                                 //this.state.render = false;    
                             }
                     }>Reject</Button>

@@ -17,9 +17,10 @@ class Leave extends React.Component {
   constructor(props){
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this);
+    this.handleStatusCheck = this.handleStatusCheck.bind(this);
     this.state = {selectedDays:[],reason:"",reason_category:"",resp:"",casual:"",earned:"",medical:""}
-    axios.get('http://13.234.55.47:5000/get_leave_data/'+props.eid)
-    //axios.get('http://localhost:5000/get_leave_data/'+props.eid)
+    //axios.get('http://13.234.55.47:5000/get_leave_data/'+props.eid)
+    axios.get('http://localhost:5000/get_leave_data/'+props.eid)
     .then(res=>{
                 this.setState({casual:res.data.casual})
                 this.setState({earned:res.data.earned})
@@ -53,13 +54,13 @@ class Leave extends React.Component {
     var i;
     for (i=0;i<days.length;i++)
     {
-      strdays.push(days[i].getDate()+'/'+days[i].getMonth()+'/'+days[i].getFullYear())
+      strdays.push(days[i].getDate()+'/'+(days[i].getMonth()+1)+'/'+days[i].getFullYear())
     }
     console.log(strdays)
     console.log(this.state.reason_category)
     console.log(this.props.eid)
     //axios.post('http://13.234.55.47:5000/apply_leave',{"e_id":this.props.eid,"type":"medical","list_of_dates":datearray,"reason":this.state.reason,"status":"pending"})
-    axios.post('http://13.234.55.47:5000/apply_leave',{"e_id":this.props.eid,"type":"medical","list_of_dates":strdays,"reason":this.state.reason,"status":"pending"})
+    axios.post('http://localhost:5000/apply_leave',{"e_id":this.props.eid,"type":"medical","list_of_dates":strdays,"reason":this.state.reason,"status":"pending"})
     .then(res=>{if(res.status===200)
                 {
                   alert("Leave application submitted")}
@@ -73,10 +74,9 @@ class Leave extends React.Component {
   }
 
   handleStatusCheck = () => {
-    axios.get('http://13.234.55.47:5000/get_leave_status/'+this.props.eid)
+    axios.get('http://loaclhost:5000/get_leave_status/'+this.props.eid)
     .then(res=>{
-      console.log(res.data)
-      alert(res.data[0])
+      alert(res.data)
     })
   }
 

@@ -31,7 +31,7 @@ class Bonusitem extends React.Component{
                     <Button variant="info" onClick={()=>{
                                 console.log("clicked")
                                 this.setState({status:"approved"})
-                                Axios.post('http://13.234.55.47:5000/approve_bonus',{e_id:this.props.item.e_id})
+                                Axios.post('http://localhost:5000/approve_bonus',{e_id:this.props.item.e_id})
                                 //this.state.render = false;    
                             }
                                 

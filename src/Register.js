@@ -1,44 +1,94 @@
-import React from "react"
-import axios from "axios"
-class Register extends React.Component{
-    constructor(props){
-        super(props)
-        this.state={email:"",password:"",dept_id:"",stat:0}
-        console.log("register page")
-    }
-    handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(this.state.email,this.state.password)
-        axios.post("http://13.234.55.47:5000/register",{user_name:this.state.email,password:this.state.password,dept_id:this.state.dept_id})
-        //axios.post("http://localhost:5000/register",{user_name:this.state.email,password:this.state.password,dept_id:this.state.dept_id})
-        .then(res=>{
-            if(res.status==200)
-            console.log("registered")
-        }
-            )
-        this.props.history.push("/l")                           
-      } 
-    render(){
-        return(
-            <div>
-                <p>Register page</p>
-                <form onSubmit={this.handleSubmit}>
-                        <div>                        
-                            <label htmlFor="Username">Username</label>
-                            <input type="text" placeholder="username enter that one" onChange={(e) => this.setState({email: e.target.value})}/>
-                        </div>
-                        <div>                        
-                            <label htmlFor="Department">Department</label>
-                            <input type="text" placeholder="department enter that one" onChange={(e) => this.setState({dept_id: e.target.value})}/>
-                        </div>
-                        <div>                        
-                            <label htmlFor="password">Password</label>
-                            <input type="password" onChange={(e) => this.setState({password: e.target.value})}/>
-                        </div>
-                        <input type="submit" value="Register" />
-                </form>
-            </div>
-        )
-        }
+import React from "react";
+import DayPicker, { DateUtils } from 'react-day-picker';
+import 'react-day-picker/lib/style.css';
+ 
+import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
+import Background from "./images/wallpaper.jpg"
+import MyNavbar from "./MyNavbar"
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
+
+ // put drop down for method and change request
+
+class Register extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {user_name:"",password:"",dept_id:"",e_contact:"",e_email:"",e_type:"",approver_id:""}
+}
+
+  handleSubmit = () => {
+    console.log(this.state.user_name)
+    console.log(this.state.e_type)
+    axios.post('http://localhost:5000/register', {"user_name":this.state.user_name,"password":this.state.password,"dept_id":this.state.dept_id,"e_contact":this.state.e_contact,"e_email":this.state.e_email, "e_type":this.state.e_type, "approver_id":this.state.approver_id})
+    .then(res=>{if(res.status===200)
+                {
+                  alert("Employee Registered")}
+                else{
+                  alert("Recheck Entered Values")
+                }
+              }
+      )
+   
+    //console.log(resp)
+  }
+
+ 
+  render(){
+    return (
+      <div style={{backgroundImage:"url(" + Background + ")", height:"100vh",width:"100vw",backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundAttachment:'scroll'}} >
+        <MyNavbar> </MyNavbar>
+        <div class="put_in_center">
+
+            <h2 style={{justifyContent:'center',display:'flex',paddingTop:'2%',paddingBottom:'2%'}}>Enter Employee Detail</h2>
+           
+        <div class="pushtoright">
+        <Form>
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>Employee Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    </Form.Label>
+            <Form.Control type="text" onChange={(e) => {this.setState({user_name: e.target.value})}} />
+          </Form.Group>
+
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>Password &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</Form.Label>
+            <Form.Control type="text" onChange={(e) => {this.setState({password: e.target.value})}} />
+            <br></br>
+          </Form.Group>
+
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>Department Id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</Form.Label>
+            <Form.Control type="text" onChange={(e) => {this.setState({dept_id: e.target.value})}} />
+          </Form.Group>
+
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>Enter Contact Number &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </Form.Label>
+            <Form.Control type="text" onChange={(e) => {this.setState({e_contact: e.target.value})}} />
+          </Form.Group>
+
+          <Form.Group controlId="exampleForm.ControlSelect1">  
+            <Form.Label>Enter Email Id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</Form.Label>
+            <Form.Control type="text" onChange={(e) => {this.setState({e_email: e.target.value})}} />
+          </Form.Group>
+
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>Enter Employee Type &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</Form.Label>
+            <Form.Control type="text" onChange={(e) => {this.setState({e_type: e.target.value})}} />
+          </Form.Group>
+
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>Enter Approver Id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</Form.Label>
+            <Form.Control type="text" onChange={(e) => {this.setState({approver_id: e.target.value})}} />
+          </Form.Group>
+        </Form>
+       
+        <Button onClick={this.handleSubmit} variant="secondary">Register Employee</Button>
+        </div>
+      </div>
+    </div>
+    );
+  }
 }
 export default Register;
+	
+	
+	
