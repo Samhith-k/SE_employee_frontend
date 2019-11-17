@@ -11,6 +11,18 @@ class Login extends React.Component{
     constructor(props){
         super(props)
         this.state={email:"",password:"",stat:0}
+        
+            if (localStorage.getItem('eid')===null) {
+              console.log("cache is empty")
+            }
+            else{
+                this.props.isAuthenticated()
+                this.props.seteid(localStorage.getItem("eid"))
+                console.log("inside login eid is ",localStorage.getItem("eid"))
+
+            }
+      
+          
     }
 
     handleSubmit = (e) => {
