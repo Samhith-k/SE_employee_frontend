@@ -15,6 +15,7 @@ const MyNavbar = () => {
           <Nav.Link><Link to="/Bill" style={{color:'white'}}>Bill-Rimburse</Link></Nav.Link>
           <Nav.Link><Link to="/Cab" style={{color:'white'}}>Book-Cab</Link></Nav.Link>
           <Nav.Link><Link to="/Approve" style={{color:'white'}}>Approvals</Link></Nav.Link>
+		  <Nav.Link><Link to="/l"  onclick={ localStorage.clear() }  style={{color:'white'}}>Logout</Link></Nav.Link>
           
 
         </Nav>
