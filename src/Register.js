@@ -10,8 +10,9 @@ class Register extends React.Component{
         e.preventDefault()
         console.log(this.state.email,this.state.password)
         axios.post("http://13.234.55.47:5000/register",{user_name:this.state.email,password:this.state.password,dept_id:this.state.dept_id})
+        //axios.post("http://localhost:5000/register",{user_name:this.state.email,password:this.state.password,dept_id:this.state.dept_id})
         .then(res=>{
-            if(res.status===200)
+            if(res.status==200)
             console.log("registered")
         }
             )

@@ -1,29 +1,21 @@
 import React from "react"
 import { Link } from 'react-router-dom';
+import Navbar from "react-bootstrap/Navbar"
+import Nav from "react-bootstrap/Nav"
 const MyNavbar = () => {
     return(
-        <nav className="navbar navbar-default">
-            <div className="container">
-                <div className="navbar-header">
-                    <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span className="sr-only">Toggle navigation</span>
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                    </button>
-                    
-                </div>
-                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul className="nav navbar-nav navbar-right">
-                        <li><Link to="/Salary">Salary</Link></li>
-                        <li><Link to="/Leave">Leave</Link></li>
-                        <li><Link to="/search">referral</Link></li>
-                        <li><Link to="/search">reimbursement</Link></li>
-                        <li><Link to="/ApproveLeave">Approve Leave</Link></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        
+        <Navbar bg="dark" variant="dark">
+        <Navbar.Brand>EMS</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link><Link to="/" style={{color:'white'}}>Home</Link></Nav.Link>
+          <Nav.Link><Link to="/Leave" style={{color:'white'}}>Leave</Link></Nav.Link>
+          <Nav.Link><Link to="/Salary" style={{color:'white'}}>Salary</Link></Nav.Link>
+          <Nav.Link><Link to="/Bill" style={{color:'white'}}>Bill-Rimburse</Link></Nav.Link>
+          <Nav.Link><Link to="/Cab" style={{color:'white'}}>Book-Cab</Link></Nav.Link>
+          <Nav.Link><Link to="/Approve" style={{color:'white'}}>Approvals</Link></Nav.Link>
+        </Nav>
+      </Navbar>
     );
 }
 

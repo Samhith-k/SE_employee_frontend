@@ -1,6 +1,5 @@
 import React from "react"
 import axios from "axios"
-import MyNavbar from "./MyNavbar"
 
 class Salary extends React.Component{
     constructor(props){
@@ -9,6 +8,7 @@ class Salary extends React.Component{
         //event.preventDefault
         console.log("inside the salary page",props.eid)
         axios.get('http://13.234.55.47:5000/display_salary/'+props.eid)
+        //axios.get('http://localhost:5000/display_salary/'+props.eid)
         .then(
            response=> {console.log(response.data)
            this.setState({salary:response.data.Salary})
@@ -21,7 +21,6 @@ class Salary extends React.Component{
     render(){
         return(
             <div>
-            <MyNavbar> </MyNavbar>
             <p>salary</p>
             <p> salary :{this.state.salary}</p>
             <p> bonus :{this.state.bonus}</p>

@@ -34,7 +34,7 @@ class Routes extends React.Component{
               <PrivateRoute exact path="/Leave" authenticated={this.state.loggedin} component={Leave} eid={this.state.eid} />
 
               <PrivateRoute exact path="/Salary" authenticated={this.state.loggedin} component={Salary} eid={this.state.eid} />
-              <PrivateRoute exact path="/ApproveLeave" authenticated={this.state.loggedin} component={Approve} eid={this.state.eid} />
+              <PrivateRoute exact path="/Approve" authenticated={this.state.loggedin} component={Approve} eid={this.state.eid} />
               <Route exact path="/l" render={() => <Login loggedin={this.state.loggedin} isAuthenticated={this.isAuthenticated} seteid={this.seteid} eid={this.state.eid} />} /> 
               <Route exact path="/register" component={Register} />
           </Switch>

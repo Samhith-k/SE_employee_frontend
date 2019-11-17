@@ -10,11 +10,33 @@
   html,body{
     height:100%;
     font-size: 16px;
-    background-color: #1c1052;
+    background-color: white;
   }
   
   img{
     max-width: 100%;
+  }
+
+  .DayPicker{
+    background-color: azure;
+    margin-left: 5%;
+  }
+
+  .pushtoright{
+    width: 50%;
+    display: grid;
+    float: right;
+    margin-right: 20%;
+  }
+  .put_in_center{
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2%;
+  
   }
   
   .navbar-default{
@@ -189,10 +211,10 @@
     margin-bottom: 25px;
   }
   
-
+  
   
   label{
-    color:#22d5c3;
+    color: black;
     font-family: Manrope;
   }
   
@@ -201,11 +223,11 @@
   }
   
   input[type="submit"]{
-    background-color: #22d5c3;
+    background-color: rgb(60, 61, 109);
     padding: 8px 15px;
     box-shadow: 5px 5px 25px 0 rgba(0,0,0,0.07);
     border-radius: 5px;
-    color: #1c1052;
+    color: white;
     border : none;
     font-weight: bold;
     font-family: manrope;
