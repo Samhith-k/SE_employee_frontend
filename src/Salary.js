@@ -1,5 +1,8 @@
 import React from "react"
 import axios from "axios"
+import Background from "./images/wallpaper.jpg"
+import MyNavbar from "./MyNavbar"
+import Table from 'react-bootstrap/Table'
 
 class Salary extends React.Component{
     constructor(props){
@@ -19,13 +22,52 @@ class Salary extends React.Component{
         );
     }
     render(){
+        const salstatus = this.state.salary_status;
+        let sal;
+        let bon;
+        if(!salstatus)
+        {
+            sal = <p>Not Credited</p>
+        }
+        else
+        {
+            sal = <p>Credited</p>
+        }
+        const bonstatus = this.state.bonus_status;
+        if(!bonstatus)
+        {
+            bon = <p>Not given yet.</p>
+        }
+        else
+        {
+            bon = <p>Annual bonus given</p>
+        }
         return(
-            <div>
-            <p>salary</p>
-            <p> salary :{this.state.salary}</p>
-            <p> bonus :{this.state.bonus}</p>
-            <p> salary status :{this.state.salary_status}</p>
-            <p> bonus status: {this.state.bonus_status}</p>
+            <div style={{backgroundImage:"url(" + Background + ")", height:"100%",backgroundRepeat:'no-repeat',backgroundSize:'cover'}}>
+                <MyNavbar />
+                <div class="put_in_center">
+                <h2 style={{justifyContent:'center',display:'flex',paddingTop:'2%',paddingBottom:'2%'}}>Personal Salary Details</h2>
+                <Table striped bordered hover style={{width:'80%',marginLeft:'10%'}}>
+                <tbody>
+                <tr>
+                  <td>Salary</td>
+                  <td><p>{this.state.salary}</p></td>
+                </tr>
+                <tr>
+                  <td>Bonus</td>
+                  <td><p>{this.state.bonus}</p></td>
+                </tr>
+                <tr>
+                  <td>Salary Status</td>
+                  <td>{sal}</td>
+                </tr>
+                <tr>
+                  <td>Bonus Status</td>
+                    <td>{bon}</td>
+                </tr>
+              </tbody>
+            </Table>
+            </div>
             </div>
         )
     }

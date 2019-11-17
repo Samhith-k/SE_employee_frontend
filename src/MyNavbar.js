@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from 'react-router-dom';
 import Navbar from "react-bootstrap/Navbar"
 import Nav from "react-bootstrap/Nav"
+//<Nav.Link><Link to="/l" onClick={localStorage.clear()} style={{color:'white'}}>Logout</Link></Nav.Link>
 const MyNavbar = () => {
     return(
         
@@ -14,7 +15,7 @@ const MyNavbar = () => {
           <Nav.Link><Link to="/Bill" style={{color:'white'}}>Bill-Rimburse</Link></Nav.Link>
           <Nav.Link><Link to="/Cab" style={{color:'white'}}>Book-Cab</Link></Nav.Link>
           <Nav.Link><Link to="/Approve" style={{color:'white'}}>Approvals</Link></Nav.Link>
-          <Nav.Link><Link to="/l" onClick={localStorage.clear()} style={{color:'white'}}>Logout</Link></Nav.Link>
+          
 
         </Nav>
       </Navbar>

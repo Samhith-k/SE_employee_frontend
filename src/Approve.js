@@ -58,6 +58,7 @@ class Approve extends React.Component {
         console.log("datesss in table are ",this.state.present)
         console.log("items are",this.state.items)
         const approveitems=this.state.items.map(item=><Leaveitem key={item.eid} item={item} handleChange={this.handleChange} />)
+
         const bonusitems=this.state.details.map(item=><Bonusitem key={item.eid} item={item} handleChange={this.handleChange} />)
         
         return (
@@ -80,8 +81,10 @@ class Approve extends React.Component {
                 <Col sm={9}>
                 <Tab.Content>
                     <Tab.Pane eventKey="first">
-                    {
+                    {   
+
                         approveitems
+                        
                     }
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
